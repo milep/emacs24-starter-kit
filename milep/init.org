@@ -7,7 +7,7 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby))
+(dolist (package '(inf-ruby smex))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -18,4 +18,10 @@ install them. Other dependencies are provided by Emacs 24.
 (starter-kit-load "org")
 (starter-kit-load "ruby")
 (starter-kit-load "js")
+#+end_src
+
+** Smex init
+#+begin_src emacs-lisp
+(require 'smex)
+(smex-initialize)
 #+end_src
