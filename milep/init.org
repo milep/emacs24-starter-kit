@@ -1,0 +1,21 @@
+#+TITLE: Personal customizations
+#+OPTIONS: toc:nil num:nil ^:nil
+
+
+** Check Dependencies
+
+Determine whether required packages are installed. If not, use ELPA to
+install them. Other dependencies are provided by Emacs 24.
+#+begin_src emacs-lisp
+(dolist (package '(inf-ruby))
+  (unless (package-installed-p package)
+    (package-install package)))
+#+end_src
+
+** Activate more of the starter kit
+#+begin_src emacs-lisp
+(starter-kit-load "misc-recommended")
+(starter-kit-load "org")
+(starter-kit-load "ruby")
+(starter-kit-load "js")
+#+end_src
