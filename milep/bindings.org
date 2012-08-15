@@ -8,3 +8,9 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 #+end_src
+
+** Duplicate current line 
+NOTE: You need GUI to use uppercase control characters
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-S-d") 'duplicate-line)
+#+end_src
