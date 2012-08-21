@@ -1,0 +1,16 @@
+#+TITLE: System specific config
+#+OPTIONS: toc:nil num:nil ^:nil
+
+** Start emacs server
+#+begin_src emacs-lisp
+(server-start)
+#+end_src
+** Disable pop-up-frames
+#+begin_src emacs-lisp
+(setq ns-pop-up-frames nil)
+#+end_src emacs-lisp
+** Set font
+#+begin_src emacs-lisp
+(set-frame-font "Inconsolata-dz-13")
+#+end_src
+
