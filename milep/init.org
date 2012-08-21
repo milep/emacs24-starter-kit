@@ -25,3 +25,9 @@ install them. Other dependencies are provided by Emacs 24.
 (require 'smex)
 (smex-initialize)
 #+end_src
+
+** Move point to the bottom/top of buffer when scrolling
+#+begin_src emacs-lisp
+(setq scroll-error-top-bottom t)
+#+end_src
+
