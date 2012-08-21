@@ -18,3 +18,7 @@ NOTE: You need GUI to use uppercase control characters
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c g") 'magit-status)
 #+end_src
+** Ace-jump-mode
+#+begin_src emacs-lisp
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+#+end_src

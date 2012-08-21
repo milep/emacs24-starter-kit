@@ -7,7 +7,7 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby smex))
+(dolist (package '(inf-ruby smex ace-jump-mode))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
