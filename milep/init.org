@@ -1,7 +1,7 @@
 #+TITLE: Personal customizations
 #+OPTIONS: toc:nil num:nil ^:nil
 
-
+* Customizations
 ** Check Dependencies
 
 Determine whether required packages are installed. If not, use ELPA to
@@ -17,7 +17,6 @@ install them. Other dependencies are provided by Emacs 24.
 (starter-kit-load "misc-recommended")
 (starter-kit-load "org")
 (starter-kit-load "ruby")
-(starter-kit-load "js")
 #+end_src
 
 ** Smex init
@@ -25,9 +24,13 @@ install them. Other dependencies are provided by Emacs 24.
 (require 'smex)
 (smex-initialize)
 #+end_src
-
 ** Move point to the bottom/top of buffer when scrolling
 #+begin_src emacs-lisp
 (setq scroll-error-top-bottom t)
 #+end_src
 
+
+** Gemfile is ruby
+#+begin_src emacs-lisp
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+#+end_src
