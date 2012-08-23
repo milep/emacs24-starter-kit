@@ -34,3 +34,8 @@ install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 #+end_src
+
+** Default ispell language
+#+begin_src elisp
+(setq ispell-dictionary "en")
+#+end_src
