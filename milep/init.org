@@ -7,7 +7,7 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby smex ace-jump-mode haml-mode))
+(dolist (package '(inf-ruby smex ace-jump-mode))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -43,3 +43,14 @@ install them. Other dependencies are provided by Emacs 24.
   (defun eshell/ff (file)
     (find-file file))
 #+end_src
+
+** Haml-mode
+Official release/elpa package doesn't support Emacs 24.1 yet
+(24.8.2012)
+Clone repository from https://github.com/dgutov/haml-mode to
+vendor/haml-mode
+#+begin_src emacs-lisp
+(add-to-list 'load-path (concat starter-kit-dir "vendor/haml-mode"))
+(require 'haml-mode)
+#+end_src
+
