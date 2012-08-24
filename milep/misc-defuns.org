@@ -81,5 +81,3 @@ putting the matching lines in a buffer named *matching*"
   (find-alternate-file (concat "/sudo:root@localhost:"
   (buffer-file-name (current-buffer)))))
 #+end_src
-
-

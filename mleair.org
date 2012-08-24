@@ -14,3 +14,17 @@
 (set-frame-font "Inconsolata-dz-13")
 #+end_src
 
+** Unicorn management for Booking project
+#+begin_src elisp
+(defun unicorn-start ()
+  (interactive)
+  (shell-command
+  "/Users/milep/eebu/booking/bin/dev_remote_start_unicorn.sh &"))
+(defun unicorn-quit ()
+  (interactive)
+  (shell-command
+  "/Users/milep/eebu/booking/bin/dev_remote_quit_unicorn.sh &"))
+(defun unicorn-hup ()
+  (interactive)
+  (shell-command "/Users/milep/eebu/booking/bin/dev_remote_hup_unicorn.sh &"))
+#+end_src
