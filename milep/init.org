@@ -29,13 +29,16 @@ install them. Other dependencies are provided by Emacs 24.
 (setq scroll-error-top-bottom t)
 #+end_src
 
-
 ** Gemfile is ruby
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 #+end_src
-
 ** Default ispell language
 #+begin_src elisp
 (setq ispell-dictionary "en")
+#+end_src
+
+** Eshell
+#+begin_src elisp
+(defalias 'ff 'find-file)
 #+end_src
