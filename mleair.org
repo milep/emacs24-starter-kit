@@ -15,7 +15,7 @@
 #+end_src
 
 ** Unicorn management for Booking project
-#+begin_src elisp
+#+begin_src emacs-lisp
 (defun unicorn-start ()
   (interactive)
   (shell-command
