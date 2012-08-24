@@ -1,6 +1,13 @@
 #+TITLE: Personal key bindings
 #+OPTIONS: toc:nil num:nil ^:nil
 
+* Minor mode
+#+begin_src emacs-lisp
+(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+#+end_src
+
+
+* Key bindings
 ** Smex
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-x") 'smex)
@@ -21,4 +28,25 @@ NOTE: You need GUI to use uppercase control characters
 ** Ace-jump-mode
 #+begin_src emacs-lisp
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+#+end_src
+** Comment or uncomment line
+#+begin_src emacs-lisp
+(define-key my-keys-minor-mode-map (kbd "C-c C-c") 'comment-or-uncomment-current-line-or-region)
+;;(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-current-line-or-region)
+#+end_src
+
+
+* Minor mode
+#+begin_src emacs-lisp
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " my-keys" 'my-keys-minor-mode-map)
+(my-keys-minor-mode 1)
+
+(defun my-minibuffer-setup-hook ()
+  (my-keys-minor-mode 0))
+
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
+(add-hook 'magit-mode-hook 'my-minibuffer-setup-hook)
+(add-hook 'magit-log-edit-mode-hook 'my-minibuffer-setup-hook)
 #+end_src
