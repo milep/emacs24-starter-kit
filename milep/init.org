@@ -53,4 +53,13 @@ vendor/haml-mode
 (add-to-list 'load-path (concat starter-kit-dir "vendor/haml-mode"))
 (require 'haml-mode)
 #+end_src
+** js2-mode
+Using https://github.com/mooz/js2-mode.git for better indentation
+clone to vendor/js2-mode
+compile with: emacs --batch -f batch-byte-compile js2-mode.el
+#+begin_src emacs-lisp
+(add-to-list 'load-path (concat starter-kit-dir "vendor/js2-mode"))
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
+#+end_src
 
