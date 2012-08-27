@@ -63,3 +63,11 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 #+end_src
 
+** Yasnippet
+#+begin_src emacs-lisp
+  (setq yas/root-directory 
+        (list 
+         (expand-file-name "mysnippets" starter-kit-dir) 
+         (expand-file-name "snippets" starter-kit-dir)))
+  (mapc 'yas/load-directory yas/root-directory)
+#+end_src
