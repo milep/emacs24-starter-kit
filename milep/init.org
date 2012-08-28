@@ -7,7 +7,7 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby smex ace-jump-mode))
+(dolist (package '(inf-ruby smex ace-jump-mode textmate))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -70,4 +70,8 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
          (expand-file-name "mysnippets" starter-kit-dir) 
          (expand-file-name "snippets" starter-kit-dir)))
   (mapc 'yas/load-directory yas/root-directory)
+#+end_src
+** Activate textmate mode
+#+begin_src emacs-lisp
+(textmate-mode)
 #+end_src
