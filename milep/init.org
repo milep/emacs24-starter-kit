@@ -33,6 +33,11 @@ install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 #+end_src
+** Use aspell
+#+begin_src emacs-lisp
+(setq ispell-program-name "/usr/local/bin/aspell")
+#+end_src
+
 ** Default ispell language
 #+begin_src emacs-lisp
 (setq ispell-dictionary "en")
@@ -70,6 +75,11 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
          (expand-file-name "mysnippets" starter-kit-dir) 
          (expand-file-name "snippets" starter-kit-dir)))
   (mapc 'yas/load-directory yas/root-directory)
+#+end_src
+** Peepopen
+#+begin_src emacs-lisp
+(add-to-list 'load-path (concat starter-kit-dir "/vendor/peepopen"))
+(require 'peepopen)
 #+end_src
 ** Activate textmate mode
 #+begin_src emacs-lisp
