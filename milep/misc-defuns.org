@@ -82,14 +82,3 @@ putting the matching lines in a buffer named *matching*"
   (buffer-file-name (current-buffer)))))
 #+end_src
 
-** Comment or uncomment line
-#+begin_src emacs-lisp
-(defun comment-or-uncomment-current-line-or-region ()
-  "Comments or uncomments current current line or whole lines in region."
-  (interactive)
-  (save-excursion
-    (let (min max)
-      (if (region-active-p)
-          (comment-or-uncomment-region (region-beginning) (region-end))
-        (comment-or-uncomment-region (line-beginning-position) (line-end-position))))))
-#+end_src
