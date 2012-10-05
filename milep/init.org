@@ -85,3 +85,8 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
 #+begin_src emacs-lisp
 (textmate-mode)
 #+end_src
+** rbenv path (eg. to fix flymake)
+#+begin_src emacs-lisp
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+#+end_src
