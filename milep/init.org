@@ -7,7 +7,7 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby smex ace-jump-mode textmate))
+(dolist (package '(inf-ruby smex ace-jump-mode textmate expand-region))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -81,6 +81,11 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
 (add-to-list 'load-path (concat starter-kit-dir "/vendor/peepopen"))
 (require 'peepopen)
 #+end_src
+** Expand region
+#+begin_src emacs-lisp
+(require 'expand-region)
+#+end_src
+
 ** Activate textmate mode
 #+begin_src emacs-lisp
 (textmate-mode)

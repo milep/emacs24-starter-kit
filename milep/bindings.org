@@ -29,6 +29,10 @@ NOTE: You need GUI to use uppercase control characters
 #+begin_src emacs-lisp
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 #+end_src
+** expand-region
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-=") 'er/expand-region)
+#+end_src
 * Minor mode
 #+begin_src emacs-lisp
 (define-minor-mode my-keys-minor-mode
