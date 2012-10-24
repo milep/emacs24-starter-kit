@@ -82,3 +82,37 @@ putting the matching lines in a buffer named *matching*"
   (buffer-file-name (current-buffer)))))
 #+end_src
 
+** Convert {} to do end block
+#+begin_src emacs-lisp
+(defun doend()
+  "convert {} to do end block"
+  (interactive)
+
+  ;; save the point for undo
+  (setq buffer-undo-list (cons (point) buffer-undo-list))
+  (save-excursion
+    (let (bol eol (count 0))
+      (save-excursion
+        (beginning-of-line)
+        (setq bol (point)))
+      (search-backward "{" bol)
+      (delete-char 1)
+      (insert "do")
+      (save-excursion
+        (end-of-line)
+        (setq eol (point)))
+      (re-search-forward "|\\w*|" 
+                         (or (save-excursion (search-forward "{" eol t)) eol) 
+                         t)
+      (reindent-then-newline-and-indent)
+      (save-excursion
+        (end-of-line)
+        (setq eol (point)))
+      (while (search-forward "{" eol t)
+        (setq count (1+ count)))
+      (search-forward "}" nil nil (1+ count))
+      (delete-char -1)
+      (newline)
+      (insert "end")
+      (reindent-then-newline-and-indent))))
+#+end_src
