@@ -21,9 +21,10 @@ NOTE: You need GUI to use uppercase control characters
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-S-d") 'duplicate-line)
 #+end_src
-** Magit-status 
+** Magit-status and quit fullscreen
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-c g") 'magit-status)
+(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 #+end_src
 ** Ace-jump-mode
 #+begin_src emacs-lisp
