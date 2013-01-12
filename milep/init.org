@@ -108,3 +108,10 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 #+end_src
+** Enhanced ruby mode
+https://github.com/jacott/Enhanced-Ruby-Mode
+#+begin_src emacs-lisp
+(add-to-list 'load-path "vendor/Enhanced-Ruby-Mode") ; must be added after any path containing old ruby-mode
+(setq enh-ruby-program (concat (getenv "HOME") "/.rbenv/versions/1.9.3-p194/bin/ruby")) ; so that still works if ruby points to ruby1.8
+(require 'ruby-mode)
+#+end_src
