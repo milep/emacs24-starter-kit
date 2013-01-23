@@ -7,7 +7,8 @@
 Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
-(dolist (package '(inf-ruby smex ace-jump-mode textmate expand-region))
+(dolist (package '(inf-ruby smex ace-jump-mode textmate expand-region
+  clojure-mode nrepl paredit))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -114,4 +115,9 @@ https://github.com/jacott/Enhanced-Ruby-Mode
 (add-to-list 'load-path "vendor/Enhanced-Ruby-Mode") ; must be added after any path containing old ruby-mode
 (setq enh-ruby-program (concat (getenv "HOME") "/.rbenv/versions/1.9.3-p194/bin/ruby")) ; so that still works if ruby points to ruby1.8
 (require 'ruby-mode)
+#+end_src
+
+** Clojure paredit hook
+#+begin_src emacs-lisp
+(add-hook 'clojure-mode-hook 'paredit-mode)
 #+end_src
