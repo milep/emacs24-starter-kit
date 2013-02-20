@@ -58,6 +58,7 @@ vendor/haml-mode
 #+begin_src emacs-lisp
 (add-to-list 'load-path (concat starter-kit-dir "vendor/haml-mode"))
 (require 'haml-mode)
+(add-hook 'haml-mode-hook 'run-starter-kit-coding-hook)
 #+end_src
 ** js2-mode
 Using https://github.com/mooz/js2-mode.git for better indentation
