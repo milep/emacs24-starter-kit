@@ -8,7 +8,7 @@ Determine whether required packages are installed. If not, use ELPA to
 install them. Other dependencies are provided by Emacs 24.
 #+begin_src emacs-lisp
 (dolist (package '(inf-ruby smex ace-jump-mode textmate expand-region
-  clojure-mode nrepl paredit))
+  clojure-mode nrepl paredit js-comint))
   (unless (package-installed-p package)
     (package-install package)))
 #+end_src
@@ -69,7 +69,26 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 #+end_src
-
+** js-comint
+#+begin_src emacs-lisp
+  (require 'js-comint)
+  (setq inferior-js-program-command "/usr/local/bin/node")
+  (setq inferior-js-mode-hook
+        (lambda ()
+          ;; We like nice colors
+          (ansi-color-for-comint-mode-on)
+          ;; Deal with some prompt nonsense
+          (add-to-list 'comint-preoutput-filter-functions
+                       (lambda (output)
+                         (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
+                       (replace-regexp-in-string ".*1G.*3G" "> "
+                                                 output))))
+#+end_src
+** handlebars-mode
+#+begin_src emacs-lisp
+(add-to-list 'load-path (concat starter-kit-dir "vendor/handlebars"))
+(require 'handlebars-mode)
+#+end_src
 ** Yasnippet
 #+begin_src emacs-lisp
   (setq yas/root-directory 
