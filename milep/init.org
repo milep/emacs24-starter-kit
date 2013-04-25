@@ -80,10 +80,10 @@ compile with: emacs --batch -f batch-byte-compile js2-mode.el
           ;; Deal with some prompt nonsense
           (add-to-list 'comint-preoutput-filter-functions
                        (lambda (output)
-                         (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
-                       (replace-regexp-in-string ".*1G.*3G" "> "
-                                                 output))))
+                         (replace-regexp-in-string ".*1G\.\.\..*5G"
+  "..." (replace-regexp-in-string ".*1G.*3G" "> " output))))))
 #+end_src
+
 ** handlebars-mode
 #+begin_src emacs-lisp
 (add-to-list 'load-path (concat starter-kit-dir "vendor/handlebars"))
